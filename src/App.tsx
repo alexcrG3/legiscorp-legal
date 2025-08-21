@@ -10,6 +10,9 @@ import Asuntos from "./pages/dashboard/Asuntos";
 import Documentos from "./pages/dashboard/Documentos";
 import Plantillas from "./pages/dashboard/Plantillas";
 import Calendario from "./pages/dashboard/Calendario";
+import Jurisprudencia from "./pages/dashboard/Jurisprudencia";
+import Historial from "./pages/dashboard/Historial";
+import Estadisticas from "./pages/dashboard/Estadisticas";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,9 @@ const App = () => (
             <Route path="documentos" element={<Documentos />} />
             <Route path="plantillas" element={<Plantillas />} />
             <Route path="calendario" element={<Calendario />} />
+            <Route path="jurisprudencia" element={<Jurisprudencia />} />
+            <Route path="historial" element={<Historial />} />
+            <Route path="estadisticas" element={<Estadisticas />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
