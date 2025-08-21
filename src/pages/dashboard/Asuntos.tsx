@@ -1,83 +1,61 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, FileText, Plus, Search, Filter } from "lucide-react";
+import { ArrowLeft, FileText, Plus, Search, Filter, User, Calendar, FileCheck, Edit, Trash2 } from "lucide-react";
 
 const Asuntos = () => {
   const asuntos = [
     {
-      id: "2023-001",
-      titulo: "Demanda Civil - Incumplimiento de Contrato",
-      cliente: "María José Rodríguez",
-      estado: "En Progreso",
-      prioridad: "Alta",
-      fechaCreacion: "15/01/2023",
-      proximaAudiencia: "25/12/2023"
+      id: "CASO-2024-001",
+      titulo: "Demanda por incumplimiento contractual",
+      tipo: "Civil",
+      cliente: "María González Rodríguez",
+      inicio: "2024-01-15",
+      proximaAudiencia: "2024-02-10",
+      descripcion: "Demanda por incumplimiento de contrato de servicios profesionales",
+      estado: "En proceso",
+      prioridad: "Alta"
     },
     {
-      id: "2023-002",
-      titulo: "Defensa Penal - Caso de Difamación",
+      id: "CASO-2024-002",
+      titulo: "Divorcio consensual",
+      tipo: "Familiar",
       cliente: "Carlos Mendoza",
-      estado: "Investigación",
-      prioridad: "Media",
-      fechaCreacion: "20/01/2023",
-      proximaAudiencia: "30/12/2023"
+      inicio: "2024-01-20",
+      proximaAudiencia: "2024-02-15",
+      descripcion: "Proceso de divorcio de mutuo acuerdo con liquidación de sociedad conyugal",
+      estado: "En proceso",
+      prioridad: "Media"
     },
     {
-      id: "2023-003",
-      titulo: "Asesoría Corporativa - Fusión Empresarial",
+      id: "CASO-2024-003",
+      titulo: "Constitución de sociedad",
+      tipo: "Corporativo",
       cliente: "Ana Lucía Santos",
-      estado: "Documentación",
-      prioridad: "Alta",
-      fechaCreacion: "10/02/2023",
-      proximaAudiencia: "15/01/2024"
+      inicio: "2024-01-25",
+      proximaAudiencia: "2024-02-05",
+      descripcion: "Constitución de sociedad anónima para nueva empresa tecnológica",
+      estado: "Pendiente",
+      prioridad: "Baja"
     }
   ];
-
-  const getEstadoColor = (estado: string) => {
-    switch (estado) {
-      case "En Progreso": return "bg-green-100 text-green-800";
-      case "Investigación": return "bg-yellow-100 text-yellow-800";
-      case "Documentación": return "bg-blue-100 text-blue-800";
-      default: return "bg-gray-100 text-gray-800";
-    }
-  };
-
-  const getPrioridadColor = (prioridad: string) => {
-    switch (prioridad) {
-      case "Alta": return "bg-red-100 text-red-800";
-      case "Media": return "bg-orange-100 text-orange-800";
-      case "Baja": return "bg-green-100 text-green-800";
-      default: return "bg-gray-100 text-gray-800";
-    }
-  };
 
   return (
     <div className="min-h-screen bg-muted/30">
       {/* Header */}
       <div className="bg-background border-b border-border p-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link to="/dashboard">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Volver al Dashboard
-              </Button>
-            </Link>
-            <div className="flex items-center space-x-2">
-              <FileText className="h-8 w-8 text-accent" />
-              <div>
-                <h1 className="text-2xl font-bold text-primary">Gestión de Asuntos</h1>
-                <p className="text-muted-foreground">Administra casos activos, estados y seguimientos</p>
-              </div>
+          <div className="flex items-center space-x-2">
+            <FileText className="h-8 w-8 text-accent" />
+            <div>
+              <h1 className="text-2xl font-bold text-primary">Gestión de Asuntos</h1>
+              <p className="text-muted-foreground">Administra todos los casos legales</p>
             </div>
           </div>
-          <Link to="/dashboard/asuntos/nuevo">
-            <Button variant="accent">
-              <Plus className="h-4 w-4 mr-2" />
-              Nuevo Asunto
-            </Button>
-          </Link>
+          <Button variant="accent">
+            <Plus className="h-4 w-4 mr-2" />
+            Nuevo Asunto
+          </Button>
         </div>
       </div>
 
@@ -132,32 +110,97 @@ const Asuntos = () => {
             <CardTitle>Lista de Asuntos</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {asuntos.map((asunto) => (
-                <div key={asunto.id} className="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-mono text-muted-foreground">#{asunto.id}</span>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getEstadoColor(asunto.estado)}`}>
-                          {asunto.estado}
-                        </span>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getPrioridadColor(asunto.prioridad)}`}>
-                          {asunto.prioridad}
-                        </span>
+                <Card key={asunto.id} className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-16 h-16 bg-slate-100 rounded-lg flex items-center justify-center">
+                        <FileText className="h-8 w-8 text-slate-600" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-1">{asunto.titulo}</h3>
-                      <p className="text-sm text-muted-foreground mb-2">Cliente: {asunto.cliente}</p>
-                      <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                        <span>Creado: {asunto.fechaCreacion}</span>
-                        <span>Próxima audiencia: {asunto.proximaAudiencia}</span>
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <h3 className="text-xl font-semibold text-primary">{asunto.titulo}</h3>
+                        </div>
+                        <div className="flex items-center space-x-2 mb-3">
+                          <span className="text-sm text-muted-foreground">ID: {asunto.id}</span>
+                          <span className="text-sm text-muted-foreground">• Tipo: {asunto.tipo}</span>
+                        </div>
+                        
+                        <div className="grid grid-cols-3 gap-8">
+                          <div className="flex items-center space-x-2">
+                            <User className="h-4 w-4 text-muted-foreground" />
+                            <div>
+                              <span className="text-muted-foreground text-sm">Cliente</span>
+                              <p className="text-sm font-medium">{asunto.cliente}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Calendar className="h-4 w-4 text-muted-foreground" />
+                            <div>
+                              <span className="text-muted-foreground text-sm">Inicio</span>
+                              <p className="text-sm font-medium">{asunto.inicio}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Calendar className="h-4 w-4 text-orange-500" />
+                            <div>
+                              <span className="text-muted-foreground text-sm">Próxima audiencia</span>
+                              <p className="text-sm font-medium text-orange-500">{asunto.proximaAudiencia}</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-3">
+                          <span className="text-muted-foreground text-sm">Descripción</span>
+                          <p className="text-sm">{asunto.descripcion}</p>
+                        </div>
                       </div>
                     </div>
-                    <Button variant="outline" size="sm">
-                      Ver Detalles
+                    <div className="flex items-center space-x-2">
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        asunto.estado === "En proceso" ? "bg-blue-100 text-blue-700" :
+                        asunto.estado === "Pendiente" ? "bg-yellow-100 text-yellow-700" :
+                        "bg-gray-100 text-gray-700"
+                      }`}>
+                        {asunto.estado}
+                      </span>
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        asunto.prioridad === "Alta" ? "bg-red-100 text-red-700" :
+                        asunto.prioridad === "Media" ? "bg-yellow-100 text-yellow-700" :
+                        "bg-green-100 text-green-700"
+                      }`}>
+                        {asunto.prioridad}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-2">
+                    <Button variant="outline" size="sm" className="text-blue-600 border-blue-200 hover:bg-blue-50">
+                      <FileText className="h-4 w-4 mr-1" />
+                      Asuntos (1)
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-green-600 border-green-200 hover:bg-green-50">
+                      + Nuevo Asunto
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      Calendario
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-gray-600 border-gray-200 hover:bg-gray-50">
+                      <FileCheck className="h-4 w-4 mr-1" />
+                      Documentos (0)
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-blue-600 text-white">
+                      <Edit className="h-4 w-4 mr-1" />
+                      Editar Cliente
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50 bg-red-600 text-white">
+                      <Trash2 className="h-4 w-4 mr-1" />
+                      Eliminar Cliente
                     </Button>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </CardContent>
