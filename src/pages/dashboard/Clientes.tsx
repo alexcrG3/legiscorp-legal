@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Users, UserPlus, Search, Filter } from "lucide-react";
+import { ArrowLeft, Users, UserPlus, Search, Filter, FileText, Calendar, Database, Edit, Trash2 } from "lucide-react";
 
 const Clientes = () => {
   const clientes = [
@@ -36,27 +36,17 @@ const Clientes = () => {
       {/* Header */}
       <div className="bg-background border-b border-border p-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link to="/dashboard">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Volver al Dashboard
-              </Button>
-            </Link>
-            <div className="flex items-center space-x-2">
-              <Users className="h-8 w-8 text-accent" />
-              <div>
-                <h1 className="text-2xl font-bold text-primary">Gestión de Clientes</h1>
-                <p className="text-muted-foreground">Administra tu cartera de clientes</p>
-              </div>
+          <div className="flex items-center space-x-2">
+            <Users className="h-8 w-8 text-accent" />
+            <div>
+              <h1 className="text-2xl font-bold text-primary">Gestión de Clientes</h1>
+              <p className="text-muted-foreground">Administra tu cartera de clientes</p>
             </div>
           </div>
-          <Link to="/dashboard/clientes/nuevo">
-            <Button variant="accent">
-              <UserPlus className="h-4 w-4 mr-2" />
-              Nuevo Cliente
-            </Button>
-          </Link>
+          <Button variant="accent">
+            <UserPlus className="h-4 w-4 mr-2" />
+            Nuevo Cliente
+          </Button>
         </div>
       </div>
 
@@ -111,27 +101,67 @@ const Clientes = () => {
             <CardTitle>Lista de Clientes</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-6">
               {clientes.map((cliente) => (
-                <div key={cliente.id} className="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-muted/50 transition-colors">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                      <Users className="h-6 w-6 text-accent" />
+                <Card key={cliente.id} className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center">
+                        <Users className="h-8 w-8 text-slate-600" />
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-2 mb-1">
+                          <h3 className="text-xl font-semibold text-primary">{cliente.nombre}</h3>
+                          <span className="text-sm text-muted-foreground">#{cliente.id}</span>
+                          <span className="text-sm text-muted-foreground">• DNI: 118500456</span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-8 mt-2">
+                          <div className="flex items-center space-x-2">
+                            <span className="text-muted-foreground">Email</span>
+                            <span className="text-sm">{cliente.email}</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <span className="text-muted-foreground">Teléfono</span>
+                            <span className="text-sm">{cliente.telefono}</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <span className="text-muted-foreground">Dirección</span>
+                            <span className="text-sm">San José, Escazú</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-primary">{cliente.nombre}</h3>
-                      <p className="text-sm text-muted-foreground">{cliente.email}</p>
-                      <p className="text-sm text-muted-foreground">{cliente.telefono}</p>
-                    </div>
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                      Activo
+                    </span>
                   </div>
-                  <div className="text-right">
-                    <div className="text-sm text-primary font-medium">{cliente.casosActivos} casos activos</div>
-                    <div className="text-sm text-muted-foreground">{cliente.ultimaActividad}</div>
+                  
+                  <div className="flex items-center space-x-2">
+                    <Button variant="outline" size="sm" className="text-blue-600 border-blue-200 hover:bg-blue-50">
+                      <FileText className="h-4 w-4 mr-1" />
+                      Asuntos ({cliente.casosActivos})
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-green-600 border-green-200 hover:bg-green-50">
+                      + Nuevo Asunto
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      Calendario
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-gray-600 border-gray-200 hover:bg-gray-50">
+                      <Database className="h-4 w-4 mr-1" />
+                      Documentos (0)
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-blue-600 border-blue-200 hover:bg-blue-50 bg-blue-600 text-white">
+                      <Edit className="h-4 w-4 mr-1" />
+                      Editar Cliente
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50 bg-red-600 text-white">
+                      <Trash2 className="h-4 w-4 mr-1" />
+                      Eliminar Cliente
+                    </Button>
                   </div>
-                  <Button variant="outline" size="sm">
-                    Ver Detalles
-                  </Button>
-                </div>
+                </Card>
               ))}
             </div>
           </CardContent>

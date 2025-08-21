@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -17,6 +17,9 @@ import {
 } from "lucide-react";
 
 const Dashboard = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const sidebarItems = [
     { icon: Users, label: "Clientes", path: "/dashboard/clientes" },
     { icon: FileText, label: "Asuntos", path: "/dashboard/asuntos" },
@@ -145,7 +148,11 @@ const Dashboard = () => {
               <Link
                 key={item.label}
                 to={item.path}
-                className="flex items-center space-x-3 p-2 rounded-lg hover:bg-muted transition-colors text-foreground hover:text-accent"
+                className={`flex items-center space-x-3 p-2 rounded-lg transition-colors ${
+                  currentPath === item.path
+                    ? "bg-accent text-accent-foreground"
+                    : "text-foreground hover:bg-muted hover:text-accent"
+                }`}
               >
                 <item.icon className="h-5 w-5" />
                 <span className="text-sm font-medium">{item.label}</span>
@@ -157,70 +164,76 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <div className="flex-1 bg-muted/30">
-        {/* Hero Banner */}
-        <div className="bg-gradient-to-r from-primary to-primary-light text-white p-8 m-6 rounded-lg">
-          <h1 className="text-2xl font-bold mb-2">Bienvenido al Sistema Legal Integrado</h1>
-          <p className="text-white/90 mb-6">Gestiona todos los aspectos de tu práctica legal desde un solo lugar</p>
-          
-          <div className="grid grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent">24</div>
-              <div className="text-sm text-white/80">Casos activos</div>
+        {currentPath === "/dashboard" ? (
+          <>
+            {/* Hero Banner */}
+            <div className="bg-gradient-to-r from-primary to-primary-light text-white p-8 m-6 rounded-lg">
+              <h1 className="text-2xl font-bold mb-2">Bienvenido al Sistema Legal Integrado</h1>
+              <p className="text-white/90 mb-6">Gestiona todos los aspectos de tu práctica legal desde un solo lugar</p>
+              
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent">24</div>
+                  <div className="text-sm text-white/80">Casos activos</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent">156</div>
+                  <div className="text-sm text-white/80">Clientes registrados</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent">8</div>
+                  <div className="text-sm text-white/80">Audiencias esta semana</div>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent">156</div>
-              <div className="text-sm text-white/80">Clientes registrados</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent">8</div>
-              <div className="text-sm text-white/80">Audiencias esta semana</div>
-            </div>
-          </div>
-        </div>
 
-        {/* Module Cards Grid */}
-        <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 mb-8">
-            {moduleCards.map((module) => (
-              <Card key={module.title} className="hover-lift transition-all duration-300 hover:shadow-lg">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className={`w-12 h-12 rounded-lg ${module.bgColor} flex items-center justify-center flex-shrink-0`}>
-                      <module.icon className={`h-6 w-6 ${module.iconColor}`} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-primary mb-2">{module.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-4">{module.description}</p>
-                      <Link to={module.path}>
-                        <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 p-0 h-auto font-medium">
-                          Acceder →
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Quick Actions */}
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-primary mb-4">Acciones Rápidas</h2>
-            <div className="grid grid-cols-3 gap-4">
-              {quickActions.map((action) => (
-                <Link key={action.title} to={action.path}>
-                  <Card className="hover-lift transition-all duration-300 hover:shadow-md">
-                    <CardContent className="p-4 text-center">
-                      <action.icon className="h-8 w-8 text-accent mx-auto mb-2" />
-                      <h3 className="font-semibold text-primary text-sm mb-1">{action.title}</h3>
-                      <p className="text-xs text-muted-foreground">{action.description}</p>
+            {/* Module Cards Grid */}
+            <div className="p-6">
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                {moduleCards.map((module) => (
+                  <Card key={module.title} className="hover-lift transition-all duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className={`w-12 h-12 rounded-lg ${module.bgColor} flex items-center justify-center flex-shrink-0`}>
+                          <module.icon className={`h-6 w-6 ${module.iconColor}`} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-semibold text-primary mb-2">{module.title}</h3>
+                          <p className="text-sm text-muted-foreground mb-4">{module.description}</p>
+                          <Link to={module.path}>
+                            <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 p-0 h-auto font-medium">
+                              Acceder →
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
-                </Link>
-              ))}
+                ))}
+              </div>
+
+              {/* Quick Actions */}
+              <div className="mb-6">
+                <h2 className="text-xl font-semibold text-primary mb-4">Acciones Rápidas</h2>
+                <div className="grid grid-cols-3 gap-4">
+                  {quickActions.map((action) => (
+                    <Link key={action.title} to={action.path}>
+                      <Card className="hover-lift transition-all duration-300 hover:shadow-md">
+                        <CardContent className="p-4 text-center">
+                          <action.icon className="h-8 w-8 text-accent mx-auto mb-2" />
+                          <h3 className="font-semibold text-primary text-sm mb-1">{action.title}</h3>
+                          <p className="text-xs text-muted-foreground">{action.description}</p>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </>
+        ) : (
+          <Outlet />
+        )}
       </div>
     </div>
   );
