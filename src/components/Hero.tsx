@@ -54,7 +54,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               onClick={scrollToServices}
-              className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary"
+              className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-primary hover:border-white transition-all duration-300"
             >
               Conoce nuestros servicios
             </Button>
