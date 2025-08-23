@@ -10,6 +10,7 @@ import Asuntos from "./pages/dashboard/Asuntos";
 import Documentos from "./pages/dashboard/Documentos";
 import Plantillas from "./pages/dashboard/Plantillas";
 import Calendario from "./pages/dashboard/Calendario";
+import Citas from "./pages/dashboard/Citas";
 import Jurisprudencia from "./pages/dashboard/Jurisprudencia";
 import Historial from "./pages/dashboard/Historial";
 import Estadisticas from "./pages/dashboard/Estadisticas";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="documentos" element={<Documentos />} />
             <Route path="plantillas" element={<Plantillas />} />
             <Route path="calendario" element={<Calendario />} />
+            <Route path="citas" element={<Citas />} />
             <Route path="jurisprudencia" element={<Jurisprudencia />} />
             <Route path="historial" element={<Historial />} />
             <Route path="estadisticas" element={<Estadisticas />} />

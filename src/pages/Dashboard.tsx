@@ -27,9 +27,10 @@ const Dashboard = () => {
     { icon: Database, label: "Documentos", path: "/dashboard/documentos" },
     { icon: FolderOpen, label: "Plantillas", path: "/dashboard/plantillas" },
     { icon: Calendar, label: "Calendario", path: "/dashboard/calendario" },
+    { icon: Clock, label: "Citas", path: "/dashboard/citas" },
     { icon: Scale, label: "Jurisprudencia", path: "/dashboard/jurisprudencia" },
-    { icon: Clock, label: "Historial", path: "/dashboard/historial" },
-    { icon: BarChart3, label: "Estadísticas", path: "/dashboard/estadisticas" },
+    { icon: BarChart3, label: "Historial", path: "/dashboard/historial" },
+    { icon: Users, label: "Estadísticas", path: "/dashboard/estadisticas" },
     { icon: Zap, label: "Automatizaciones", path: "/dashboard/automatizaciones" }
   ];
 
