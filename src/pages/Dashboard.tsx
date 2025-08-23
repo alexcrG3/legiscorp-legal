@@ -13,7 +13,8 @@ import {
   FolderOpen,
   UserPlus,
   Plus,
-  CalendarPlus
+  CalendarPlus,
+  Zap
 } from "lucide-react";
 
 const Dashboard = () => {
@@ -28,7 +29,8 @@ const Dashboard = () => {
     { icon: Calendar, label: "Calendario", path: "/dashboard/calendario" },
     { icon: Scale, label: "Jurisprudencia", path: "/dashboard/jurisprudencia" },
     { icon: Clock, label: "Historial", path: "/dashboard/historial" },
-    { icon: BarChart3, label: "Estadísticas", path: "/dashboard/estadisticas" }
+    { icon: BarChart3, label: "Estadísticas", path: "/dashboard/estadisticas" },
+    { icon: Zap, label: "Automatizaciones", path: "/dashboard/automatizaciones" }
   ];
 
   const moduleCards = [

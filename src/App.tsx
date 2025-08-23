@@ -13,6 +13,7 @@ import Calendario from "./pages/dashboard/Calendario";
 import Jurisprudencia from "./pages/dashboard/Jurisprudencia";
 import Historial from "./pages/dashboard/Historial";
 import Estadisticas from "./pages/dashboard/Estadisticas";
+import Automatizaciones from "./pages/dashboard/Automatizaciones";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="jurisprudencia" element={<Jurisprudencia />} />
             <Route path="historial" element={<Historial />} />
             <Route path="estadisticas" element={<Estadisticas />} />
+            <Route path="automatizaciones" element={<Automatizaciones />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
