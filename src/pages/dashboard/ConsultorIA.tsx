@@ -253,12 +253,7 @@ const ConsultorIA = () => {
 
         {/* Footer Info */}
         <div className="p-4 border-t border-border">
-          <p className="text-xs text-muted-foreground text-center">
-            ### No te pagan las horas trabajadas
-          </p>
-          <p className="text-xs text-muted-foreground text-center mt-1">
-            ### Pasos para un Divorcio de Mutuo Acuerdo
-          </p>
+          {/* Footer space reserved for future content */}
         </div>
       </div>
 
