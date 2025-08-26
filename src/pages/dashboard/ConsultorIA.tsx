@@ -87,10 +87,29 @@ const ConsultorIA = () => {
       if (response.ok) {
         const data = await response.json();
         
+        // El "Respond to Webhook" de n8n puede devolver la respuesta directamente
+        // o en diferentes formatos. Verificamos varios posibles campos:
+        let assistantResponse = '';
+        
+        if (typeof data === 'string') {
+          assistantResponse = data;
+        } else if (data.response) {
+          assistantResponse = data.response;
+        } else if (data.message) {
+          assistantResponse = data.message;
+        } else if (data.text) {
+          assistantResponse = data.text;
+        } else if (data.output) {
+          assistantResponse = data.output;
+        } else {
+          // Si no encontramos un campo reconocido, convertimos toda la respuesta a texto
+          assistantResponse = JSON.stringify(data, null, 2);
+        }
+        
         const assistantMessage: Message = {
           id: (Date.now() + 1).toString(),
           role: 'assistant',
-          content: data.response || 'Consulta recibida. El equipo legal revisará tu caso y te responderá pronto.',
+          content: assistantResponse || 'El agente procesó tu consulta pero no pudo generar una respuesta válida.',
           timestamp: new Date()
         };
 
