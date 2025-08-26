@@ -167,9 +167,20 @@ const ConsultorIA = () => {
   };
 
   const createNewConversation = () => {
+    // Antes de crear una nueva conversación, guardar la actual con un nombre descriptivo
+    if (activeConversation && activeConversation.messages.length > 0 && activeConversation.title === "Nueva conversación") {
+      const firstUserMessage = activeConversation.messages.find(m => m.role === "user");
+      if (firstUserMessage) {
+        const descriptiveTitle = firstUserMessage.content.length > 50 
+          ? firstUserMessage.content.slice(0, 50) + "..."
+          : firstUserMessage.content;
+        updateConversationTitle(activeConversationId, descriptiveTitle);
+      }
+    }
+
     const newConversation: Conversation = {
       id: Date.now().toString(),
-      title: 'Nueva conversación',
+      title: "Nueva conversación",
       messages: [],
       lastUpdated: new Date()
     };
