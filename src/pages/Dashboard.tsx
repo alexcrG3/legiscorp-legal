@@ -14,7 +14,8 @@ import {
   UserPlus,
   Plus,
   CalendarPlus,
-  Zap
+  Zap,
+  Bot
 } from "lucide-react";
 
 const Dashboard = () => {
@@ -31,7 +32,8 @@ const Dashboard = () => {
     { icon: Scale, label: "Jurisprudencia", path: "/dashboard/jurisprudencia" },
     { icon: BarChart3, label: "Historial", path: "/dashboard/historial" },
     { icon: Users, label: "Estadísticas", path: "/dashboard/estadisticas" },
-    { icon: Zap, label: "Automatizaciones", path: "/dashboard/automatizaciones" }
+    { icon: Zap, label: "Automatizaciones", path: "/dashboard/automatizaciones" },
+    { icon: Bot, label: "Consultor IA", path: "/dashboard/consultor-ia" }
   ];
 
   const moduleCards = [
