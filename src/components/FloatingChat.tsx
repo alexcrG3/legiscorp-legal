@@ -27,7 +27,7 @@ const FloatingChat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const webhookUrl = 'https://devn8n.luminaia.cc/webhook-test/909f14c3-9175-44c7-9894-3fa646369e73';
+  const webhookUrl = 'https://devwebhook.luminaia.cc/webhook/909f14c3-9175-44c7-9894-3fa646369e73';
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
