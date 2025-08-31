@@ -236,13 +236,17 @@ const FloatingChat = () => {
         </Card>
       ) : (
         /* Chat Button estilo WhatsApp */
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full h-14 w-14 shadow-lg hover:shadow-xl transition-all duration-200 animate-pulse"
-          size="sm"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
+        <div className="relative">
+          <Button
+            onClick={() => setIsOpen(true)}
+            className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full h-14 w-14 shadow-lg hover:shadow-xl transition-all duration-200"
+            size="sm"
+          >
+            <MessageCircle className="h-6 w-6" />
+          </Button>
+          {/* Punto rojo parpadeante */}
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+        </div>
       )}
     </div>
   );
