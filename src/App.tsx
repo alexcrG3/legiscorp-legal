@@ -17,6 +17,7 @@ import Estadisticas from "./pages/dashboard/Estadisticas";
 import Automatizaciones from "./pages/dashboard/Automatizaciones";
 import ConsultorIA from "./pages/dashboard/ConsultorIA";
 import NotFound from "./pages/NotFound";
+import FloatingChat from "./components/FloatingChat";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
