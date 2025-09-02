@@ -115,9 +115,12 @@ const ConsultorIA = () => {
 
         updateConversation(activeConversationId, assistantMessage);
         
-        // Update conversation title if it's the first message
-        if (activeConversation?.messages.length === 1) {
-          updateConversationTitle(activeConversationId, userMessage.content.slice(0, 50) + '...');
+        // Update conversation title after first complete exchange (user + AI)
+        if (activeConversation?.messages.length === 1 && activeConversation.title === 'Nueva conversación') {
+          const descriptiveTitle = userMessage.content.length > 50 
+            ? userMessage.content.slice(0, 50) + '...'
+            : userMessage.content;
+          updateConversationTitle(activeConversationId, descriptiveTitle);
         }
       } else {
         throw new Error('Error en la comunicación con el servidor');
