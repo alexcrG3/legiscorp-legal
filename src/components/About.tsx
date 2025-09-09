@@ -35,12 +35,12 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div className="animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Sobre Legiscorp Garros
+              Sobre Legiscorp
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Legiscorp Garros es una firma de abogados con más de 15 años de experiencia 
-                en el mercado legal colombiano. Nos especializamos en brindar asesoría jurídica 
+                Legiscorp es una firma de abogados con más de 20 años de experiencia 
+                en el mercado legal colombiano. Nos especializamos en brindar asesoría jurídica
                 integral y representación legal de la más alta calidad.
               </p>
               <p>
@@ -49,8 +49,8 @@ const About = () => {
                 nuestros clientes. Entendemos que cada caso es único y merece atención personalizada.
               </p>
               <p>
-                En Legiscorp Garros, nos guiamos por valores fundamentales: integridad, 
-                profesionalismo, confidencialidad y compromiso. Estos principios nos han 
+                En Legiscorp, nos guiamos por valores fundamentales: integridad, 
+                profesionalismo, confidencialidad y compromiso. Estos principios nos han
                 permitido construir relaciones sólidas y duraderas con nuestros clientes.
               </p>
             </div>
@@ -75,7 +75,7 @@ const About = () => {
             <div className="relative">
               <img
                 src={teamImage}
-                alt="Equipo legal de Legiscorp Garros"
+                alt="Equipo legal de Legiscorp"
                 className="w-full rounded-2xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded-xl shadow-lg">

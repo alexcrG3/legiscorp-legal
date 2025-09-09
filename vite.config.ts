@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Legiscorp Garros - Sistema Legal',
+        name: 'Legiscorp - Sistema Legal',
         short_name: 'Legiscorp',
         description: 'Sistema integral de gestión legal',
         theme_color: '#d4af37',

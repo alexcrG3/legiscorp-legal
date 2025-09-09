@@ -33,7 +33,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <Scale className="h-8 w-8 text-accent" />
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-primary">Legiscorp Garros</span>
+              <span className="text-xl font-bold text-primary">Legiscorp</span>
               <span className="text-xs text-muted-foreground">Firma de Abogados</span>
             </div>
           </Link>

@@ -90,7 +90,7 @@ const ConsultorIA = () => {
           message: userMessage.content,
           conversation_id: activeConversationId,
           timestamp: userMessage.timestamp.toISOString(),
-          source: 'Legiscorp Garross Dashboard'
+          source: 'Legiscorp Dashboard'
         }),
       });
 
@@ -237,7 +237,7 @@ const ConsultorIA = () => {
             <div className="flex items-center space-x-2">
               <Bot className="h-6 w-6 text-primary" />
               <div>
-                <h1 className="font-bold text-foreground">Legiscorp Garross</h1>
+                <h1 className="font-bold text-foreground">Legiscorp</h1>
                 <p className="text-xs text-muted-foreground">Consultor Legal IA</p>
               </div>
             </div>
@@ -428,7 +428,7 @@ const ConsultorIA = () => {
             </div>
             
             <p className="text-xs text-muted-foreground mt-2 text-center">
-              Legiscorp Garross puede cometer errores. Considera verificar la información importante.
+              Legiscorp puede cometer errores. Considera verificar la información importante.
             </p>
           </div>
         </div>

@@ -1,7 +1,7 @@
 {
-  "name": "Legiscorp Garros - Sistema Legal",
+  "name": "Legiscorp - Sistema Legal",
   "short_name": "Legiscorp",
-  "description": "Sistema integral de gestión legal para Legiscorp Garros",
+  "description": "Sistema integral de gestión legal para Legiscorp",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#2c3e50",
