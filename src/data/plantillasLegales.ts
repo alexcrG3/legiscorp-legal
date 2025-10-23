@@ -201,5 +201,174 @@ Carné: [NÚMERO]
 Teléfono: [TELÉFONO]
 Email: [EMAIL]
 
-CC: Expediente del cliente`
+CC: Expediente del cliente`,
+
+  acuerdoConfidencialidad: `ACUERDO DE CONFIDENCIALIDAD (NDA)
+
+Entre los suscritos a saber: [NOMBRE PARTE DIVULGADORA], mayor, [ESTADO CIVIL], [PROFESIÓN], cédula de identidad número [CÉDULA], con domicilio en [DIRECCIÓN], en adelante denominada "LA PARTE DIVULGADORA", y por otra parte [NOMBRE PARTE RECEPTORA], mayor, [ESTADO CIVIL], [PROFESIÓN], cédula de identidad número [CÉDULA RECEPTORA], con domicilio en [DIRECCIÓN RECEPTORA], en adelante denominada "LA PARTE RECEPTORA", hemos convenido en celebrar el presente Acuerdo de Confidencialidad, que se regirá por las siguientes cláusulas:
+
+PRIMERA: OBJETO DEL ACUERDO
+El presente acuerdo tiene por objeto regular las condiciones bajo las cuales LA PARTE DIVULGADORA compartirá con LA PARTE RECEPTORA información confidencial relacionada con [DESCRIBIR PROPÓSITO O PROYECTO], en adelante "Información Confidencial".
+
+SEGUNDA: DEFINICIÓN DE INFORMACIÓN CONFIDENCIAL
+Se considera Información Confidencial toda aquella información, ya sea oral, escrita, gráfica o en cualquier otro formato, que incluye pero no se limita a:
+
+a) Información técnica, comercial y financiera
+b) Planes de negocios, estrategias y proyecciones
+c) Datos de clientes, proveedores y empleados
+d) Procesos, métodos y procedimientos operativos
+e) Información sobre productos, servicios y tecnología
+f) Cualquier otra información marcada como "CONFIDENCIAL"
+
+TERCERA: OBLIGACIONES DE LA PARTE RECEPTORA
+LA PARTE RECEPTORA se obliga a:
+
+a) Mantener estricta confidencialidad sobre toda la información recibida
+b) No divulgar, publicar o compartir la Información Confidencial con terceros sin autorización previa y por escrito de LA PARTE DIVULGADORA
+c) Utilizar la Información Confidencial únicamente para los fines acordados en este documento
+d) Implementar medidas de seguridad razonables para proteger la información
+e) Limitar el acceso a la información solo al personal que necesite conocerla
+f) Notificar inmediatamente a LA PARTE DIVULGADORA sobre cualquier uso no autorizado o divulgación de la información
+
+CUARTA: EXCEPCIONES
+No se considerará Información Confidencial aquella que:
+
+a) Sea o llegue a ser de dominio público sin culpa de LA PARTE RECEPTORA
+b) Estuviera en posesión legítima de LA PARTE RECEPTORA antes de su divulgación
+c) Sea recibida legítimamente de un tercero sin restricciones de confidencialidad
+d) Deba ser divulgada por mandato de autoridad competente o disposición legal
+
+QUINTA: PROPIEDAD INTELECTUAL
+Toda la Información Confidencial y los derechos de propiedad intelectual asociados permanecen como propiedad exclusiva de LA PARTE DIVULGADORA. Este acuerdo no otorga ninguna licencia, derecho o interés sobre la información, excepto el derecho limitado de uso para el propósito acordado.
+
+SEXTA: DEVOLUCIÓN DE INFORMACIÓN
+Al término de este acuerdo o cuando LA PARTE DIVULGADORA lo solicite, LA PARTE RECEPTORA deberá:
+
+a) Devolver o destruir toda la Información Confidencial en su posesión
+b) Eliminar toda copia, registro o documento que contenga Información Confidencial
+c) Certificar por escrito el cumplimiento de estas obligaciones
+
+SÉPTIMA: VIGENCIA
+El presente acuerdo tendrá vigencia de [PLAZO] años contados a partir de su firma. Las obligaciones de confidencialidad permanecerán vigentes por [PLAZO CONFIDENCIALIDAD] años adicionales después de la terminación del acuerdo.
+
+OCTAVA: PENALIDADES
+En caso de incumplimiento de las obligaciones establecidas en este acuerdo, LA PARTE RECEPTORA será responsable por todos los daños y perjuicios causados a LA PARTE DIVULGADORA, incluyendo lucro cesante, daño emergente y daño moral.
+
+NOVENA: JURISDICCIÓN Y LEY APLICABLE
+Este acuerdo se rige por las leyes de la República de Costa Rica. Cualquier controversia será sometida a los Tribunales de Justicia de [CIUDAD], Costa Rica.
+
+DÉCIMA: DISPOSICIONES GENERALES
+- Este acuerdo constituye el entendimiento completo entre las partes
+- Cualquier modificación debe ser por escrito y firmada por ambas partes
+- La invalidez de alguna cláusula no afectará la validez del resto del acuerdo
+
+En fe de lo anterior, firmamos en [CIUDAD], a los [DÍA] días del mes de [MES] de [AÑO].
+
+
+_________________________              _________________________
+PARTE DIVULGADORA                     PARTE RECEPTORA
+Nombre: [NOMBRE]                      Nombre: [NOMBRE]
+Cédula: [CÉDULA]                     Cédula: [CÉDULA]`,
+
+  solicitudMedidaCautelar: `SEÑORES
+JUZGADO [CIVIL/PENAL/LABORAL] DE [CIRCUITO JUDICIAL]
+S.D.
+
+[NOMBRE SOLICITANTE], mayor, [ESTADO CIVIL], [PROFESIÓN], cédula de identidad número [CÉDULA], vecino de [DIRECCIÓN], por medio de mi abogado director [NOMBRE ABOGADO], mayor, [ESTADO CIVIL], abogado, cédula de identidad número [CÉDULA ABOGADO], carné profesional número [CARNÉ], con oficina en [DIRECCIÓN OFICINA], ante ustedes con el debido respeto comparezco a SOLICITAR MEDIDA CAUTELAR según los siguientes:
+
+PARTE CONTRA QUIEN SE SOLICITA:
+[NOMBRE DEMANDADO], mayor, [ESTADO CIVIL], [PROFESIÓN], cédula de identidad número [CÉDULA DEMANDADO], con último domicilio conocido en [DIRECCIÓN DEMANDADO].
+
+ANTECEDENTES DEL PROCESO:
+
+PRIMERO: Que mediante expediente número [NÚMERO EXPEDIENTE], se tramita ante este honorable despacho [TIPO DE PROCESO] en la que mi representado actúa como [PARTE ACTORA/DEMANDANTE].
+
+SEGUNDO: Que el proceso principal se fundamenta en [BREVE DESCRIPCIÓN DE LA PRETENSIÓN PRINCIPAL DEL PROCESO].
+
+TERCERO: Que con fecha [FECHA], se presentó la demanda principal y actualmente se encuentra en etapa de [ETAPA PROCESAL].
+
+HECHOS QUE FUNDAMENTAN LA MEDIDA:
+
+PRIMERO: Que existe un peligro inminente de que la parte demandada [DESCRIBIR ACTO QUE SE PRETENDE PREVENIR - Por ejemplo: enajene, grave o disponga de los bienes objeto del litigio].
+
+SEGUNDO: Que recientemente hemos tenido conocimiento de que [DESCRIBIR HECHOS CONCRETOS QUE DEMUESTRAN EL PELIGRO].
+
+TERCERO: Que dichos actos podrían hacer nugatorio el resultado del proceso principal, causando un daño irreparable a los derechos de mi representado.
+
+CUARTO: Que existe evidencia documental que respalda la existencia de [DESCRIBIR PRUEBA DEL PELIGRO].
+
+FUNDAMENTO LEGAL:
+
+La presente solicitud se fundamenta en los artículos [ARTÍCULOS APLICABLES] del Código Procesal Civil de Costa Rica, artículos [OTROS ARTÍCULOS] y demás normativa procesal conexa que regulan las medidas cautelares.
+
+REQUISITOS DE PROCEDENCIA:
+
+1. APARIENCIA DE BUEN DERECHO (Fumus Boni Iuris):
+Existe verosimilitud en el derecho que se reclama, según se desprende de [DESCRIBIR PRUEBAS Y FUNDAMENTOS QUE DEMUESTRAN LA APARIENCIA DE BUEN DERECHO].
+
+2. PELIGRO EN LA DEMORA (Periculum In Mora):
+Existe el riesgo fundado de que durante la tramitación del proceso se produzcan actos que hagan imposible o dificulten la ejecución de la sentencia, específicamente [DESCRIBIR PELIGROS CONCRETOS].
+
+3. PROPORCIONALIDAD:
+La medida solicitada es proporcional y adecuada para garantizar el resultado del proceso, sin causar gravámenes innecesarios a la contraparte.
+
+MEDIDA CAUTELAR SOLICITADA:
+
+Con fundamento en lo expuesto, solicito respetuosamente se decrete MEDIDA CAUTELAR consistente en:
+
+[DESCRIBIR ESPECÍFICAMENTE LA MEDIDA - Ejemplos:]
+
+OPCIÓN 1 - Embargo:
+El embargo preventivo sobre los siguientes bienes propiedad de [NOMBRE DEMANDADO]:
+a) [DESCRIPCIÓN DEL BIEN 1]
+b) [DESCRIPCIÓN DEL BIEN 2]
+c) [DESCRIPCIÓN DEL BIEN 3]
+
+OPCIÓN 2 - Anotación:
+La anotación de demanda sobre el bien inmueble inscrito en el Registro Público bajo la matrícula número [NÚMERO], plano catastrado [NÚMERO PLANO].
+
+OPCIÓN 3 - Prohibición:
+Se prohíba a [NOMBRE DEMANDADO] realizar cualquier acto de disposición, gravamen o enajenación sobre [DESCRIBIR BIENES].
+
+OPCIÓN 4 - Orden de hacer o no hacer:
+Se ordene a [NOMBRE DEMANDADO] [DESCRIBIR ORDEN ESPECÍFICA].
+
+GARANTÍA:
+
+Mi representado se compromete a prestar garantía suficiente por un monto de [MONTO EN COLONES] para responder por los daños y perjuicios que pudiera causar la medida en caso de resultar improcedente.
+
+PRUEBA:
+
+Ofrezco como medios de prueba:
+1. Documental: [LISTAR DOCUMENTOS]
+2. Testimonial: [LISTAR TESTIGOS SI APLICA]
+3. Pericial: [SI APLICA]
+
+PETITORIA:
+
+Por lo expuesto, solicito respetuosamente se sirvan:
+
+1. Admitir la presente solicitud de medida cautelar
+2. Decretar la medida solicitada
+3. Ordenar su ejecución inmediata
+4. Librar los oficios correspondientes para su inscripción [SI APLICA]
+
+NOTIFICACIONES:
+
+Señalo para oír notificaciones [DIRECCIÓN] y correo electrónico [EMAIL].
+
+DILIGENCIAS:
+
+Solicito se sirvan oficiar a [ENTIDADES CORRESPONDIENTES] para la efectiva aplicación de la medida.
+
+Es justicia.
+
+[LUGAR], [FECHA]
+
+
+_________________________
+[NOMBRE ABOGADO]
+Carné: [NÚMERO]
+Teléfono: [TELÉFONO]
+Email: [EMAIL]`
 };

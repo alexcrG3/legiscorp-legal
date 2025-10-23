@@ -56,19 +56,21 @@ const Plantillas = () => {
       id: 5,
       nombre: "Acuerdo de Confidencialidad",
       categoria: "Contratos",
-      descripcion: "NDA estándar para protección de información confidencial",
+      descripcion: "NDA estándar para protección de información confidencial conforme a derecho costarricense",
       fechaCreacion: "12/03/2023",
       usos: 56,
-      formato: "DOCX"
+      formato: "TXT",
+      contentKey: "acuerdoConfidencialidad"
     },
     {
       id: 6,
       nombre: "Solicitud de Medida Cautelar",
       categoria: "Procedimientos",
-      descripcion: "Plantilla para solicitud de medidas cautelares",
+      descripcion: "Plantilla para solicitud de medidas cautelares ante juzgados de Costa Rica",
       fechaCreacion: "18/03/2023",
       usos: 12,
-      formato: "DOCX"
+      formato: "TXT",
+      contentKey: "solicitudMedidaCautelar"
     }
   ];
 
