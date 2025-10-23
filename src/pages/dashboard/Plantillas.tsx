@@ -1,45 +1,56 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ArrowLeft, FolderOpen, Plus, Search, Download, Eye } from "lucide-react";
+import { useState } from "react";
+
+import { TemplateDialog } from "@/components/TemplateDialog";
+import { plantillasLegales } from "@/data/plantillasLegales";
 
 const Plantillas = () => {
+  const [selectedTemplate, setSelectedTemplate] = useState<{title: string, content: string} | null>(null);
+
   const plantillas = [
     {
       id: 1,
       nombre: "Contrato de Servicios Legales",
       categoria: "Contratos",
-      descripcion: "Plantilla estándar para contratos de servicios legales con clientes",
+      descripcion: "Plantilla estándar para contratos de servicios legales con clientes conforme a la legislación costarricense",
       fechaCreacion: "15/01/2023",
       usos: 45,
-      formato: "DOCX"
+      formato: "TXT",
+      contentKey: "contratoServiciosLegales"
     },
     {
       id: 2,
       nombre: "Demanda Civil General",
       categoria: "Demandas",
-      descripcion: "Formato base para demandas civiles con campos personalizables",
+      descripcion: "Formato base para demandas civiles ante juzgados de Costa Rica con campos personalizables",
       fechaCreacion: "20/01/2023",
       usos: 23,
-      formato: "DOCX"
+      formato: "TXT",
+      contentKey: "demandaCivil"
     },
     {
       id: 3,
       nombre: "Poder Notarial Simple",
       categoria: "Poderes",
-      descripcion: "Plantilla para otorgamiento de poderes notariales simples",
+      descripcion: "Plantilla para otorgamiento de poderes notariales simples según formato notarial de Costa Rica",
       fechaCreacion: "10/02/2023",
       usos: 67,
-      formato: "PDF"
+      formato: "TXT",
+      contentKey: "poderNotarial"
     },
     {
       id: 4,
       nombre: "Carta de Intimación",
       categoria: "Correspondencia",
-      descripcion: "Formato estándar para cartas de intimación legal",
+      descripcion: "Formato profesional para cartas de intimación legal previo a acciones judiciales",
       fechaCreacion: "05/03/2023",
       usos: 34,
-      formato: "DOCX"
+      formato: "TXT",
+      contentKey: "cartaIntimacion"
     },
     {
       id: 5,
@@ -54,12 +65,21 @@ const Plantillas = () => {
       id: 6,
       nombre: "Solicitud de Medida Cautelar",
       categoria: "Procedimientos",
-      descripción: "Plantilla para solicitud de medidas cautelares",
+      descripcion: "Plantilla para solicitud de medidas cautelares",
       fechaCreacion: "18/03/2023",
       usos: 12,
       formato: "DOCX"
     }
   ];
+
+  const handleViewTemplate = (plantilla: any) => {
+    if (plantilla.contentKey && plantillasLegales[plantilla.contentKey as keyof typeof plantillasLegales]) {
+      setSelectedTemplate({
+        title: plantilla.nombre,
+        content: plantillasLegales[plantilla.contentKey as keyof typeof plantillasLegales]
+      });
+    }
+  };
 
   const categorias = [
     { nombre: "Contratos", cantidad: 25, color: "bg-blue-100 text-blue-800" },
@@ -180,11 +200,23 @@ const Plantillas = () => {
                 </div>
 
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1"
+                    onClick={() => handleViewTemplate(plantilla)}
+                    disabled={!plantilla.contentKey}
+                  >
                     <Eye className="h-4 w-4 mr-2" />
                     Vista Previa
                   </Button>
-                  <Button variant="accent" size="sm" className="flex-1">
+                  <Button 
+                    variant="accent" 
+                    size="sm" 
+                    className="flex-1"
+                    onClick={() => handleViewTemplate(plantilla)}
+                    disabled={!plantilla.contentKey}
+                  >
                     <Download className="h-4 w-4 mr-2" />
                     Usar
                   </Button>
@@ -194,6 +226,13 @@ const Plantillas = () => {
           ))}
         </div>
       </div>
+
+      <TemplateDialog 
+        open={!!selectedTemplate}
+        onOpenChange={(open) => !open && setSelectedTemplate(null)}
+        title={selectedTemplate?.title || ""}
+        content={selectedTemplate?.content || ""}
+      />
     </div>
   );
 };
