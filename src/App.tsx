@@ -19,6 +19,7 @@ import Historial from "./pages/dashboard/Historial";
 import Estadisticas from "./pages/dashboard/Estadisticas";
 import Automatizaciones from "./pages/dashboard/Automatizaciones";
 import ConsultorIA from "./pages/dashboard/ConsultorIA";
+import Usuarios from "./pages/dashboard/Usuarios";
 import NotFound from "./pages/NotFound";
 import PublicFirma from "./pages/PublicFirma";
 import FloatingChat from "./components/FloatingChat";
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="estadisticas" element={<Estadisticas />} />
             <Route path="automatizaciones" element={<Automatizaciones />} />
             <Route path="consultor-ia" element={<ConsultorIA />} />
+            <Route path="usuarios" element={<Usuarios />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

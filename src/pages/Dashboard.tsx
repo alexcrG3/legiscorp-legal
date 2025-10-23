@@ -55,6 +55,11 @@ const Dashboard = () => {
     { icon: Bot, label: "Consultor IA", path: "/dashboard/consultor-ia" }
   ];
 
+  // Solo mostrar gestión de usuarios a SuperAdmin y Admin
+  if (profile?.rol === "SuperAdmin" || profile?.rol === "Admin") {
+    sidebarItems.push({ icon: UserPlus, label: "Usuarios", path: "/dashboard/usuarios" });
+  }
+
   const moduleCards = [
     {
       icon: Users,
