@@ -8,7 +8,9 @@ export function useClientes() {
   const { data: clientes, isLoading } = useQuery({
     queryKey: ["clientes"],
     queryFn: async () => {
+      console.log("🔍 Cargando clientes...");
       const { data: profile } = await supabase.auth.getUser();
+      console.log("👤 Usuario:", profile.user?.email);
       if (!profile.user) throw new Error("No user");
 
       const { data: userProfile } = await supabase
@@ -17,6 +19,7 @@ export function useClientes() {
         .eq("id", profile.user.id)
         .single();
 
+      console.log("🏢 Firma ID:", userProfile?.firma_id);
       if (!userProfile?.firma_id) throw new Error("No firma");
 
       const { data, error } = await supabase
@@ -28,7 +31,11 @@ export function useClientes() {
         .eq("firma_id", userProfile.firma_id)
         .order("created_at", { ascending: false });
 
-      if (error) throw error;
+      console.log("📊 Clientes encontrados:", data?.length);
+      if (error) {
+        console.error("❌ Error al cargar clientes:", error);
+        throw error;
+      }
       return data;
     },
   });
