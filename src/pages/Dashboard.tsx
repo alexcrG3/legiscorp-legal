@@ -52,13 +52,11 @@ const Dashboard = () => {
     { icon: BarChart3, label: "Historial", path: "/dashboard/historial" },
     { icon: Users, label: "Estadísticas", path: "/dashboard/estadisticas" },
     { icon: Zap, label: "Automatizaciones", path: "/dashboard/automatizaciones" },
-    { icon: Bot, label: "Consultor IA", path: "/dashboard/consultor-ia" }
+    { icon: Bot, label: "Consultor IA", path: "/dashboard/consultor-ia" },
+    ...(profile?.rol === "SuperAdmin" || profile?.rol === "Admin" 
+      ? [{ icon: UserPlus, label: "Usuarios", path: "/dashboard/usuarios" }] 
+      : [])
   ];
-
-  // Solo mostrar gestión de usuarios a SuperAdmin y Admin
-  if (profile?.rol === "SuperAdmin" || profile?.rol === "Admin") {
-    sidebarItems.push({ icon: UserPlus, label: "Usuarios", path: "/dashboard/usuarios" });
-  }
 
   const moduleCards = [
     {
