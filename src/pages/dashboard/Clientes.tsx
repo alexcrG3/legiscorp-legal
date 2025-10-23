@@ -22,6 +22,11 @@ import {
 const Clientes = () => {
   const navigate = useNavigate();
   const { clientes, isLoading, deleteCliente } = useClientes();
+  
+  console.log("🎯 Componente Clientes - clientes:", clientes);
+  console.log("🎯 Componente Clientes - isLoading:", isLoading);
+  console.log("🎯 Componente Clientes - cantidad:", clientes?.length);
+  
   const [nuevoClienteDialog, setNuevoClienteDialog] = useState(false);
   const [nuevoAsuntoDialog, setNuevoAsuntoDialog] = useState<{ open: boolean; clienteId?: string }>({ open: false });
   const [asuntosDialog, setAsuntosDialog] = useState<{ open: boolean; clienteId: string; clienteNombre: string }>({
