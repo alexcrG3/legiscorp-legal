@@ -1,1 +1,4 @@
 project_id = "fjdmqkkgqheyfgjgcwcg"
+
+[functions.clasificar-asunto]
+verify_jwt = true
