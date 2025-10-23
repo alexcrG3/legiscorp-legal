@@ -17,5 +17,7 @@ export function useProfile() {
       if (error) throw error;
       return profile;
     },
+    staleTime: 0, // Siempre revalidar
+    refetchOnMount: true, // Refrescar al montar
   });
 }
