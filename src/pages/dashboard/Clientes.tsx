@@ -5,6 +5,8 @@ import { Users, UserPlus, Search, Filter, FileText, Calendar, Database, Edit, Tr
 import { useClientes } from "@/hooks/useClientes";
 import { AsuntosDialog } from "@/components/clientes/AsuntosDialog";
 import { EditarClienteDialog } from "@/components/clientes/EditarClienteDialog";
+import { NuevoClienteDialog } from "@/components/clientes/NuevoClienteDialog";
+import { NuevoAsuntoDialog } from "@/components/asuntos/NuevoAsuntoDialog";
 import { useState } from "react";
 import {
   AlertDialog,
@@ -20,6 +22,8 @@ import {
 const Clientes = () => {
   const navigate = useNavigate();
   const { clientes, isLoading, deleteCliente } = useClientes();
+  const [nuevoClienteDialog, setNuevoClienteDialog] = useState(false);
+  const [nuevoAsuntoDialog, setNuevoAsuntoDialog] = useState<{ open: boolean; clienteId?: string }>({ open: false });
   const [asuntosDialog, setAsuntosDialog] = useState<{ open: boolean; clienteId: string; clienteNombre: string }>({
     open: false,
     clienteId: "",
@@ -44,7 +48,7 @@ const Clientes = () => {
   };
 
   const handleNuevoAsunto = (clienteId: string) => {
-    navigate(`/dashboard/asuntos?clienteId=${clienteId}`);
+    setNuevoAsuntoDialog({ open: true, clienteId });
   };
 
   const handleCalendario = (clienteId: string) => {
@@ -87,7 +91,7 @@ const Clientes = () => {
               <p className="text-muted-foreground">Administra tu cartera de clientes</p>
             </div>
           </div>
-          <Button variant="accent">
+          <Button variant="accent" onClick={() => setNuevoClienteDialog(true)}>
             <UserPlus className="h-4 w-4 mr-2" />
             Nuevo Cliente
           </Button>
@@ -268,6 +272,17 @@ const Clientes = () => {
       </div>
 
       {/* Dialogs */}
+      <NuevoClienteDialog
+        open={nuevoClienteDialog}
+        onOpenChange={setNuevoClienteDialog}
+      />
+
+      <NuevoAsuntoDialog
+        open={nuevoAsuntoDialog.open}
+        onOpenChange={(open) => setNuevoAsuntoDialog({ open })}
+        clienteId={nuevoAsuntoDialog.clienteId}
+      />
+
       <AsuntosDialog
         open={asuntosDialog.open}
         onOpenChange={(open) => setAsuntosDialog({ ...asuntosDialog, open })}
