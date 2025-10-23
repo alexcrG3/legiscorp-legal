@@ -201,6 +201,59 @@ export type Database = {
           },
         ]
       }
+      consultas: {
+        Row: {
+          clasificacion_ia: string | null
+          correo: string
+          created_at: string
+          estado: string
+          firma_id: string
+          id: string
+          mensaje: string
+          nivel_urgencia: string | null
+          nombre: string
+          telefono: string | null
+          tipo_asunto: string | null
+          updated_at: string
+        }
+        Insert: {
+          clasificacion_ia?: string | null
+          correo: string
+          created_at?: string
+          estado?: string
+          firma_id: string
+          id?: string
+          mensaje: string
+          nivel_urgencia?: string | null
+          nombre: string
+          telefono?: string | null
+          tipo_asunto?: string | null
+          updated_at?: string
+        }
+        Update: {
+          clasificacion_ia?: string | null
+          correo?: string
+          created_at?: string
+          estado?: string
+          firma_id?: string
+          id?: string
+          mensaje?: string
+          nivel_urgencia?: string | null
+          nombre?: string
+          telefono?: string | null
+          tipo_asunto?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "consultas_firma_id_fkey"
+            columns: ["firma_id"]
+            isOneToOne: false
+            referencedRelation: "firmas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       documentos: {
         Row: {
           asunto_id: string | null

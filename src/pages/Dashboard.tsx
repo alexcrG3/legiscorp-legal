@@ -16,7 +16,8 @@ import {
   CalendarPlus,
   Zap,
   Bot,
-  LogOut
+  LogOut,
+  MessageSquare
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -42,6 +43,7 @@ const Dashboard = () => {
   const sidebarItems = [
     { icon: Users, label: "Clientes", path: "/dashboard/clientes" },
     { icon: FileText, label: "Asuntos", path: "/dashboard/asuntos" },
+    { icon: MessageSquare, label: "Consultas", path: "/dashboard/consultas" },
     { icon: Database, label: "Documentos", path: "/dashboard/documentos" },
     { icon: FolderOpen, label: "Plantillas", path: "/dashboard/plantillas" },
     { icon: Calendar, label: "Calendario", path: "/dashboard/calendario" },

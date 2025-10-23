@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Clientes from "./pages/dashboard/Clientes";
 import Asuntos from "./pages/dashboard/Asuntos";
+import Consultas from "./pages/dashboard/Consultas";
 import Documentos from "./pages/dashboard/Documentos";
 import Plantillas from "./pages/dashboard/Plantillas";
 import Calendario from "./pages/dashboard/Calendario";
@@ -19,6 +20,7 @@ import Estadisticas from "./pages/dashboard/Estadisticas";
 import Automatizaciones from "./pages/dashboard/Automatizaciones";
 import ConsultorIA from "./pages/dashboard/ConsultorIA";
 import NotFound from "./pages/NotFound";
+import PublicFirma from "./pages/PublicFirma";
 import FloatingChat from "./components/FloatingChat";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -34,9 +36,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/:subdominio/inicio" element={<PublicFirma />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
             <Route path="clientes" element={<Clientes />} />
             <Route path="asuntos" element={<Asuntos />} />
+            <Route path="consultas" element={<Consultas />} />
             <Route path="documentos" element={<Documentos />} />
             <Route path="plantillas" element={<Plantillas />} />
             <Route path="calendario" element={<Calendario />} />
