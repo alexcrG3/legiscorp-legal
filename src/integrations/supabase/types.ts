@@ -347,6 +347,57 @@ export type Database = {
         }
         Relationships: []
       }
+      jurisprudencia: {
+        Row: {
+          contenido_completo: string | null
+          corte: string
+          created_at: string | null
+          expediente: string
+          fecha: string
+          firma_id: string
+          id: string
+          materia: string
+          relevancia: string
+          resumen: string
+          tags: string[]
+          titulo: string
+          updated_at: string | null
+          url_documento: string | null
+        }
+        Insert: {
+          contenido_completo?: string | null
+          corte: string
+          created_at?: string | null
+          expediente: string
+          fecha: string
+          firma_id: string
+          id?: string
+          materia: string
+          relevancia?: string
+          resumen: string
+          tags?: string[]
+          titulo: string
+          updated_at?: string | null
+          url_documento?: string | null
+        }
+        Update: {
+          contenido_completo?: string | null
+          corte?: string
+          created_at?: string | null
+          expediente?: string
+          fecha?: string
+          firma_id?: string
+          id?: string
+          materia?: string
+          relevancia?: string
+          resumen?: string
+          tags?: string[]
+          titulo?: string
+          updated_at?: string | null
+          url_documento?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
