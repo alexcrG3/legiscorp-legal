@@ -41,7 +41,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contacto@legiscorpgarros.com"
+      content: "contacto@legiscorp.com"
     },
     {
       icon: Clock,

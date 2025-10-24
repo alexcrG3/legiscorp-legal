@@ -5,7 +5,7 @@ const Testimonials = () => {
     {
       name: "María José Rodríguez",
       role: "Empresaria",
-      content: "Legiscorp Garros me ayudó a resolver un caso corporativo complejo. Su profesionalismo y dedicación fueron excepcionales. Recomiendo sus servicios sin dudarlo.",
+      content: "Legiscorp me ayudó a resolver un caso corporativo complejo. Su profesionalismo y dedicación fueron excepcionales. Recomiendo sus servicios sin dudarlo.",
       rating: 5
     },
     {
