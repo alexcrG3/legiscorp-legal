@@ -37,7 +37,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto animate-fade-in-up">
-            Asesoría jurídica integral con más de 20 años de experiencia en el mercado legal colombiano
+            Asesoría jurídica integral con más de 15 años de experiencia en el mercado legal colombiano
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
@@ -54,7 +54,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               onClick={scrollToServices}
-              className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-primary hover:border-white transition-all duration-300 bg-transparent"
+              className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-primary hover:border-white transition-all duration-300"
             >
               Conoce nuestros servicios
             </Button>
@@ -63,7 +63,7 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="animate-scale-in">
-              <div className="text-3xl font-bold text-accent mb-2">20+</div>
+              <div className="text-3xl font-bold text-accent mb-2">15+</div>
               <div className="text-white/80">Años de experiencia</div>
             </div>
             <div className="animate-scale-in">

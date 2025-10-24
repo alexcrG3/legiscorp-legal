@@ -12,8 +12,7 @@ import {
   Edit3, 
   Trash2,
   MessageSquare,
-  Loader2,
-  Search
+  Loader2
 } from "lucide-react";
 
 interface Message {
@@ -43,19 +42,10 @@ const ConsultorIA = () => {
   const [activeConversationId, setActiveConversationId] = useState('1');
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const activeConversation = conversations.find(c => c.id === activeConversationId);
   const webhookUrl = 'https://devwebhook.luminaia.cc/webhook/909f14c3-9175-44c7-9894-3fa646369e73';
-
-  // Filter conversations based on search query
-  const filteredConversations = conversations.filter(conversation =>
-    conversation.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    conversation.messages.some(message => 
-      message.content.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  );
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -90,7 +80,7 @@ const ConsultorIA = () => {
           message: userMessage.content,
           conversation_id: activeConversationId,
           timestamp: userMessage.timestamp.toISOString(),
-          source: 'Legiscorp Dashboard'
+          source: 'Legiscorp Garross Dashboard'
         }),
       });
 
@@ -237,7 +227,7 @@ const ConsultorIA = () => {
             <div className="flex items-center space-x-2">
               <Bot className="h-6 w-6 text-primary" />
               <div>
-                <h1 className="font-bold text-foreground">Legiscorp</h1>
+                <h1 className="font-bold text-foreground">Legiscorp Garross</h1>
                 <p className="text-xs text-muted-foreground">Consultor Legal IA</p>
               </div>
             </div>
@@ -245,72 +235,52 @@ const ConsultorIA = () => {
           
           <Button 
             onClick={createNewConversation}
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mb-4"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
             size="sm"
           >
             <Plus className="h-4 w-4 mr-2" />
             Nueva conversación
           </Button>
-
-          {/* Search conversations */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Buscar conversaciones..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 bg-background"
-            />
-          </div>
         </div>
 
         {/* Conversations List */}
         <ScrollArea className="flex-1 p-4">
           <div className="space-y-2">
-            {filteredConversations.length === 0 ? (
-              <div className="text-center py-8">
-                <MessageSquare className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                <p className="text-sm text-muted-foreground">
-                  {searchQuery ? 'No se encontraron conversaciones' : 'Sin conversaciones'}
-                </p>
-              </div>
-            ) : (
-              filteredConversations.map((conversation) => (
-                <div
-                  key={conversation.id}
-                  className={`group flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors ${
-                    activeConversationId === conversation.id
-                      ? 'bg-accent text-accent-foreground'
-                      : 'hover:bg-muted'
-                  }`}
-                  onClick={() => setActiveConversationId(conversation.id)}
-                >
-                  <div className="flex items-center space-x-3 flex-1 min-w-0">
-                    <MessageSquare className="h-4 w-4 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium truncate">{conversation.title}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {conversation.lastUpdated.toLocaleDateString()}
-                      </p>
-                    </div>
+            {conversations.map((conversation) => (
+              <div
+                key={conversation.id}
+                className={`group flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors ${
+                  activeConversationId === conversation.id
+                    ? 'bg-accent text-accent-foreground'
+                    : 'hover:bg-muted'
+                }`}
+                onClick={() => setActiveConversationId(conversation.id)}
+              >
+                <div className="flex items-center space-x-3 flex-1 min-w-0">
+                  <MessageSquare className="h-4 w-4 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium truncate">{conversation.title}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {conversation.lastUpdated.toLocaleDateString()}
+                    </p>
                   </div>
-                  
-                  {conversations.length > 1 && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="opacity-0 group-hover:opacity-100 h-8 w-8 p-0"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        deleteConversation(conversation.id);
-                      }}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  )}
                 </div>
-              ))
-            )}
+                
+                {conversations.length > 1 && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="opacity-0 group-hover:opacity-100 h-8 w-8 p-0"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      deleteConversation(conversation.id);
+                    }}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                )}
+              </div>
+            ))}
           </div>
         </ScrollArea>
 
@@ -428,7 +398,7 @@ const ConsultorIA = () => {
             </div>
             
             <p className="text-xs text-muted-foreground mt-2 text-center">
-              Legiscorp puede cometer errores. Considera verificar la información importante.
+              Legiscorp Garross puede cometer errores. Considera verificar la información importante.
             </p>
           </div>
         </div>

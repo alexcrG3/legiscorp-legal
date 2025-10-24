@@ -39,7 +39,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-6">
               <Scale className="h-8 w-8 text-accent" />
               <div>
-                <div className="text-xl font-bold">Legiscorp</div>
+                <div className="text-xl font-bold">Legiscorp Garros</div>
                 <div className="text-sm text-white/70">Firma de Abogados</div>
               </div>
             </div>
@@ -73,7 +73,7 @@ const Footer = () => {
               
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent" />
-                <div className="text-white/80">contacto@legiscorp.com</div>
+                <div className="text-white/80">contacto@legiscorpgarros.com</div>
               </div>
               
               <div className="flex items-start space-x-3">
@@ -119,7 +119,7 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/60 text-sm">
-              © {currentYear} Legiscorp. Todos los derechos reservados.
+              © {currentYear} Legiscorp Garros. Todos los derechos reservados.
             </div>
             
             <div className="flex items-center space-x-6 text-sm">

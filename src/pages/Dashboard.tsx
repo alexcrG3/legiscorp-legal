@@ -140,7 +140,7 @@ const Dashboard = () => {
             <Scale className="h-6 w-6 text-accent" />
             <div>
               <h1 className="font-bold text-primary">Legiscorp</h1>
-              <p className="text-xs text-accent">Firma de Abogados</p>
+              <p className="text-xs text-accent">Garros</p>
             </div>
           </div>
           <h2 className="text-lg font-semibold text-primary mt-2">Dashboard Legal</h2>

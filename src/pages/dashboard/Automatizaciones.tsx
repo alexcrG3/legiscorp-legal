@@ -73,7 +73,7 @@ const Automatizaciones = () => {
           if (newActive && !auto.webhookUrl) {
             toast({
               title: "Error",
-              description: "Debes configurar el webhook primero",
+              description: "Debes configurar el webhook de n8n primero",
               variant: "destructive",
             });
             return auto;
@@ -129,7 +129,7 @@ const Automatizaciones = () => {
 
       toast({
         title: "Test Enviado",
-        description: "El webhook fue ejecutado correctamente.",
+        description: "El webhook fue ejecutado correctamente. Revisa tu flujo en n8n.",
       });
     } catch (error) {
       toast({
@@ -152,7 +152,7 @@ const Automatizaciones = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Automatizaciones</h1>
+        <h1 className="text-2xl font-bold text-foreground">Automatizaciones n8n</h1>
         <p className="text-muted-foreground">
           Configura recordatorios automáticos y notificaciones inteligentes
         </p>
@@ -166,14 +166,14 @@ const Automatizaciones = () => {
             Configuración Inicial
           </CardTitle>
           <CardDescription>
-            Pasos para configurar automatizaciones
+            Pasos para conectar con n8n
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center gap-2">
               <Badge variant="outline">1</Badge>
-              <span>Crea un workflow de automatización</span>
+              <span>Crea un workflow en n8n</span>
             </div>
             <div className="flex items-center gap-2">
               <Badge variant="outline">2</Badge>
@@ -223,12 +223,12 @@ const Automatizaciones = () => {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor={`webhook-${automation.id}`}>
-                  URL del Webhook
+                  URL del Webhook n8n
                 </Label>
                 <div className="flex gap-2">
                   <Input
                     id={`webhook-${automation.id}`}
-                    placeholder="https://tu-servidor-webhook.com/..."
+                    placeholder="https://tu-instancia-n8n.com/webhook/..."
                     value={automation.webhookUrl}
                     onChange={(e) => handleWebhookUpdate(automation.id, e.target.value)}
                   />
@@ -267,7 +267,7 @@ const Automatizaciones = () => {
             Estructura de Datos
           </CardTitle>
           <CardDescription>
-            Ejemplo del JSON que se enviará al webhook
+            Ejemplo del JSON que se enviará a n8n
           </CardDescription>
         </CardHeader>
         <CardContent>
