@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -15,35 +15,16 @@ import {
   Plus,
   CalendarPlus,
   Zap,
-  Bot,
-  LogOut,
-  MessageSquare
+  Bot
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
-import { useProfile } from "@/hooks/useProfile";
 
 const Dashboard = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const currentPath = location.pathname;
-  const { data: profile, isLoading } = useProfile();
-
-  const handleLogout = async () => {
-    try {
-      await supabase.auth.signOut();
-      toast.success("Sesión cerrada exitosamente");
-      navigate("/login");
-    } catch (error) {
-      console.error("Error al cerrar sesión:", error);
-      toast.error("Error al cerrar sesión");
-    }
-  };
 
   const sidebarItems = [
     { icon: Users, label: "Clientes", path: "/dashboard/clientes" },
     { icon: FileText, label: "Asuntos", path: "/dashboard/asuntos" },
-    { icon: MessageSquare, label: "Consultas", path: "/dashboard/consultas" },
     { icon: Database, label: "Documentos", path: "/dashboard/documentos" },
     { icon: FolderOpen, label: "Plantillas", path: "/dashboard/plantillas" },
     { icon: Calendar, label: "Calendario", path: "/dashboard/calendario" },
@@ -52,10 +33,7 @@ const Dashboard = () => {
     { icon: BarChart3, label: "Historial", path: "/dashboard/historial" },
     { icon: Users, label: "Estadísticas", path: "/dashboard/estadisticas" },
     { icon: Zap, label: "Automatizaciones", path: "/dashboard/automatizaciones" },
-    { icon: Bot, label: "Consultor IA", path: "/dashboard/consultor-ia" },
-    ...(profile?.rol === "SuperAdmin" || profile?.rol === "Admin" 
-      ? [{ icon: UserPlus, label: "Usuarios", path: "/dashboard/usuarios" }] 
-      : [])
+    { icon: Bot, label: "Consultor IA", path: "/dashboard/consultor-ia" }
   ];
 
   const moduleCards = [
@@ -158,29 +136,14 @@ const Dashboard = () => {
               Volver al sitio
             </Button>
           </Link>
-          <div className="flex items-center space-x-2 mb-4">
+          <div className="flex items-center space-x-2">
             <Scale className="h-6 w-6 text-accent" />
             <div>
-              <h1 className="font-bold text-primary">
-                {profile?.firmas?.nombre || "Legiscorp"}
-              </h1>
+              <h1 className="font-bold text-primary">Legiscorp</h1>
               <p className="text-xs text-accent">Firma de Abogados</p>
             </div>
           </div>
-          <div className="bg-muted/50 p-3 rounded-lg mb-2">
-            <p className="text-xs text-muted-foreground">Usuario</p>
-            <p className="text-sm font-medium text-foreground">{profile?.nombre || profile?.email}</p>
-            <p className="text-xs text-muted-foreground">{profile?.rol || "Asistente"}</p>
-          </div>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start text-destructive hover:text-destructive hover:bg-destructive/10"
-            onClick={handleLogout}
-          >
-            <LogOut className="h-4 w-4 mr-2" />
-            Cerrar Sesión
-          </Button>
+          <h2 className="text-lg font-semibold text-primary mt-2">Dashboard Legal</h2>
         </div>
 
         {/* Navigation */}

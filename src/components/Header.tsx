@@ -51,16 +51,11 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Auth Buttons */}
+          {/* Dashboard Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/login">
-              <Button variant="outline" size="sm">
-                Iniciar Sesión
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button variant="default" size="sm">
-                Registrarse
+            <Link to="/dashboard">
+              <Button variant="accent" size="sm">
+                Ir al Dashboard
               </Button>
             </Link>
           </div>
@@ -91,15 +86,10 @@ const Header = () => {
                   {item.name}
                 </button>
               ))}
-              <div className="pt-4 border-t border-border space-y-2">
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full">
-                    Iniciar Sesión
-                  </Button>
-                </Link>
-                <Link to="/register" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="default" size="sm" className="w-full">
-                    Registrarse
+              <div className="pt-4 border-t border-border">
+                <Link to="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                  <Button variant="accent" size="sm" className="w-full">
+                    Ir al Dashboard
                   </Button>
                 </Link>
               </div>
